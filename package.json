@@ -1,0 +1,17 @@
+{
+  "name": "instantclip-frontend",
+  "version": "1.0.0",
+  "description": "A simple copy to clip application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Sumit Prasad",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "webpack": "^5.97.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
