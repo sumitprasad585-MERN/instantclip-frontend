@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <div className="Login">
       {
-        (authError && authError.message) &&
+        (authError?.message) &&
         <div className="Login-error">
           {authError.message}
         </div> 

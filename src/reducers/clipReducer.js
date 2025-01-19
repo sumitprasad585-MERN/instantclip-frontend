@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  clips: []
+  clips: [],
+  length: 0
 };
 
 const clipSlice = createSlice({
@@ -9,6 +10,10 @@ const clipSlice = createSlice({
   initialState,
   reducers: {
     getAllClipsSuccess: (state, action) => {
+      state.clips = action.payload;
+      state.length = action.payload.length;
+    },
+    getAllClipsError: (state, action) => {
 
     },
     getClipSuccess: (state, action) => {
@@ -28,6 +33,7 @@ const clipSlice = createSlice({
 
 export const {
   getAllClipsSuccess,
+  getAllClipsError,
   getClipSuccess,
   createNewClipSuccess,
   updateClipSuccess,
