@@ -55,6 +55,7 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, 'public'), // Serve index.html from public directory
+    historyApiFallback: true,
     hot: true,
     open: true,
   },
