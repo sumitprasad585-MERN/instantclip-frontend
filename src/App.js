@@ -1,10 +1,23 @@
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import './App.scss';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import Home from './components/Home';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>App Component</h1>
-      <p>I am app component</p>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </div>
   );
 };
