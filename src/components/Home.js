@@ -20,7 +20,7 @@ const Home = () => {
           clipData?.clips &&
           clipData.clips.map((current) => {
             return (
-              <div key={current.id}>
+              <div key={current._id}>
                 <p>{current.data}</p>
               </div>
             )

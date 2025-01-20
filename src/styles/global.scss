@@ -1,0 +1,13 @@
+@mixin flexContainer() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button() {
+  cursor: pointer
+}
+
+@mixin buttonClick() {
+  transform: scale(0.98);
+}
