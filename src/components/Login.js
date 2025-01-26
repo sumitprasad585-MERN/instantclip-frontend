@@ -3,6 +3,7 @@ import './Login.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticateUser } from '../actions/authActions';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -38,9 +39,14 @@ const Login = () => {
   return (
     <div className="Login">
       <div className="Login-container">
-        {authError?.message && (
-          <div className="Login-error">{authError.message}</div>
-        )}
+        <header className="Login-header">
+          <h1>Instantclip</h1>
+        </header>
+        <div className="submit-error-wrapper">
+          {authError?.message ? (
+            <div className="Login-error">{authError.message}</div>
+          ): '\u00A0'}
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -74,6 +80,9 @@ const Login = () => {
           </div>
           <button type="submit">Login</button>
         </form>
+        <div className="Login-register">
+          <Link to="/register">Dont' have an account? Register</Link>
+        </div>
       </div>
     </div>
   );

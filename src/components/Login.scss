@@ -4,22 +4,28 @@
   width: 100%;
   height: 100vh;
   @include globalStyles.flexContainer();
-  background: linear-gradient(to right, blue, red);
 
   .Login-container {
     width: 30%;
-    background-color: orange;
     box-shadow: 0 0 1em -0.2em #000;
     border-radius: 8px;
     padding: 2em 1em;
+
+    .Login-header {
+      @include globalStyles.flexContainer();
+      letter-spacing: 1px;
+      color: #333;
+      font-family: cursive;
+    }
+
     .Login-error {
       color: red;
     }
   
     .form-group {
-      margin: 2em 0;
+      margin: 1em 0;
     }
-  
+
     input, button, label {
       display: block;
       width: 100%;
@@ -29,12 +35,15 @@
     input, button {
       border-radius: 5px;
       padding: 0.5em 0;
-      border: none;
     }
 
-    .input-error-wrapper {
+    .input-error-wrapper, .submit-error-wrapper {
       min-height: 0.8em;
       color: #f00;
+    }
+
+    .submit-error-wrapper {
+      @include globalStyles.flexContainer();
     }
 
     button {
@@ -42,6 +51,19 @@
 
       &:active {
         @include globalStyles.buttonClick();
+      }
+    }
+  }
+
+  .Login-register {
+    @include globalStyles.flexContainer();
+    margin-top: 0.5em;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
