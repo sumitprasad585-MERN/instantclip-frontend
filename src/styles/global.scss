@@ -5,7 +5,9 @@
 }
 
 @mixin button() {
-  cursor: pointer
+  cursor: pointer;
+  background-color: #ffc8dd;
+  border: none;
 }
 
 @mixin buttonClick() {

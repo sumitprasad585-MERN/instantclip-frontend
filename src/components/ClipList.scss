@@ -1,0 +1,12 @@
+@use './../styles/global.scss' as globalStyles;
+
+.ClipList {
+  .ClipList-container {
+    width: 90%;
+    margin: 1em auto;
+
+    .ClipList-data {
+      display: flex;
+    }
+  }
+}

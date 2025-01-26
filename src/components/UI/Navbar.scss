@@ -1,6 +1,5 @@
 .Navbar {
-  background-color: #000;
-  color: #fff;
+  background-color: #ffc8dd;
 
   .Navbar-container {
     width: 90%;
@@ -15,13 +14,14 @@
 
       .Navbar-link {
         text-decoration: none;
-        color: #fff;
+        color: #000;
         display: inline-flex;
         font-size: 16px;
         padding: 1rem 2em;
 
         &.active {
-          background-color: #333;
+          background-color: #ff8fab;
+          font-weight: bold;
         }
       }
     }
