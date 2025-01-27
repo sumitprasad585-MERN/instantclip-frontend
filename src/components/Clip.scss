@@ -43,6 +43,11 @@
       font-size: 1.1em;
       background-color: #333;
       color: #fff;
+
+      &:hover {
+        outline: 1px dotted #fff;
+        background-color: #555;
+      }
     }
 
     button.delete {
