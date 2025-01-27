@@ -24,10 +24,16 @@ const clipSlice = createSlice({
       state.length = state.clips.length;
     },
     updateClipSuccess: (state, action) => {
-
+      state.clips = state.clips.map(current => {
+        if (current._id === action.payload._id)
+          return action.payload;
+        return current;
+      });
+      state.length = state.clips.length;
     },
     deleteClipSuccess: (state, action) => {
-
+      state.clips = state.clips.filter(current => current._id !== action.payload);
+      state.length = state.clips.length;
     }
   }
 });

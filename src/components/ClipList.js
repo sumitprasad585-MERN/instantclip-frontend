@@ -15,7 +15,7 @@ const ClipList = () => {
             clips && clips.length > 0 &&
             clips.map(current => {
               return (
-                <Clip key={current._id} {...current}/>
+                <Clip key={current._id} clipData={current} {...current}/>
               )
             })
           }
