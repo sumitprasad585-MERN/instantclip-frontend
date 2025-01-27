@@ -8,8 +8,8 @@
   cursor: pointer;
   background-color: #ffc8dd;
   border: none;
-}
 
-@mixin buttonClick() {
-  transform: scale(0.98);
+  &:hover {
+    transform: scale(0.98);
+  }
 }

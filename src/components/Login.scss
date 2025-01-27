@@ -48,10 +48,6 @@
 
     button {
       @include globalStyles.button();
-
-      &:active {
-        @include globalStyles.buttonClick();
-      }
     }
   }
 
