@@ -20,7 +20,8 @@ const clipSlice = createSlice({
 
     },
     createNewClipSuccess: (state, action) => {
-
+      state.clips = [...state.clips, action.payload];
+      state.length = state.clips.length;
     },
     updateClipSuccess: (state, action) => {
 
