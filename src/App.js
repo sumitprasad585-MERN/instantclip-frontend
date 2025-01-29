@@ -4,6 +4,8 @@ import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
 import Register from './components/Register';
+import NotFound from './components/NotFound';
+import Layout from './components/UI/Layout';
 
 const App = () => {
   return (
@@ -21,6 +23,14 @@ const App = () => {
         <Route
           path="/register"
           element={<Register />}
+        />
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <NotFound />
+            </Layout>
+          }
         />
       </Routes>
     </div>

@@ -2,9 +2,8 @@ import './Home.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNewClip, getAllClips } from '../actions/clipActions';
-import Navbar from './UI/Navbar';
-import Footer from './UI/Footer';
 import ClipList from './ClipList';
+import Layout from './UI/Layout';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,9 +23,9 @@ const Home = () => {
 
   return (
     <div className="Home" onPaste={handlePaste}>
-      <Navbar />
-      <ClipList />
-      <Footer />
+      <Layout>
+        <ClipList />
+      </Layout>
     </div>
   );
 };
