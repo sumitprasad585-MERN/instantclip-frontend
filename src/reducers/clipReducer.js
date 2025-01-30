@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   clips: [],
+  currentClip: null,
   length: 0
 };
 
@@ -17,7 +18,7 @@ const clipSlice = createSlice({
 
     },
     getClipSuccess: (state, action) => {
-
+      state.currentClip = action.payload;
     },
     createNewClipSuccess: (state, action) => {
       state.clips = [...state.clips, action.payload];

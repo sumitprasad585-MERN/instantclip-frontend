@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authenticateUser } from '../actions/authActions';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { loginSuccess } from '../reducers/authReducer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,15 +19,20 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-    const success = dispatch(authenticateUser(email, password));
+    const success = await dispatch(authenticateUser(email, password));
     if (success) navigate('/home');
   };
 
   useEffect(() => {
     if (auth.userAuthenticated) {
       navigate('/home');
+      return;
     }
-  }, [auth, navigate]);
+    const token = Cookies.get('token');
+    if (token) {
+      dispatch(loginSuccess())
+    }
+  }, [auth.userAuthenticated, dispatch, navigate]);
 
   const validate = () => {
     const newErrors = {};

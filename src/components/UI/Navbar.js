@@ -1,7 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../actions/authActions';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = async (e) => {
+    await dispatch(logout());
+  }
+
   return (
     <div className="Navbar">
       <div className="Navbar-container">
@@ -43,7 +51,9 @@ const Navbar = () => {
               {/* TODO: USER PROFILE HERE */}
               <p>User</p>
             </li>
-            <li></li>
+            <li>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
           </ul>
         </div>
       </div>

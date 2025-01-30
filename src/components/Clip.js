@@ -2,10 +2,13 @@ import { useState } from 'react';
 import './Clip.scss';
 import { useDispatch } from 'react-redux';
 import { deleteClip, updateClip } from '../actions/clipActions';
+import { useNavigate } from 'react-router-dom';
 
 const Clip = ({ clipData, _id, data, datatype, label, fontSize, hide, listScore }) => {
   const [copied, setCopied] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleClick = (e) => {
     window.navigator.clipboard.writeText(data);
     setCopied(true);
@@ -33,7 +36,16 @@ const Clip = ({ clipData, _id, data, datatype, label, fontSize, hide, listScore 
 
   const handleDelete = (e) => {
     e.stopPropagation();
-    dispatch(deleteClip(_id));
+    // TODO: FIXME: Add modal instead of annoying confirm
+    // listen for enter key and esc key. 
+    // enter -> success
+    // esc -> abort
+    if (confirm('Are you sure?'))
+      dispatch(deleteClip(_id));
+  }
+
+  const handleClipDetails = () => {
+    navigate(`/clips/${_id}`);
   }
 
   return (
@@ -65,6 +77,7 @@ const Clip = ({ clipData, _id, data, datatype, label, fontSize, hide, listScore 
         <button onClick={e => handleFontSize(e, 'decrement')}>-</button>
         <button onClick={e => handleFontSize(e, 'increment')}>+</button>
         <button onClick={handleDelete} className="delete">🗑️</button>
+        <button onClick={handleClipDetails}>View</button>
       </div>
     </div>
   );

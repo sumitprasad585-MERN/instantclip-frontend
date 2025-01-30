@@ -1,77 +1,81 @@
 import axios from 'axios';
-import { createNewClipSuccess, deleteClipSuccess, getAllClipsError, getAllClipsSuccess, updateClipSuccess } from '../reducers/clipReducer';
+import {
+  createNewClipSuccess,
+  deleteClipSuccess,
+  getAllClipsError,
+  getAllClipsSuccess,
+  getClipSuccess,
+  updateClipSuccess,
+} from '../reducers/clipReducer';
+
+axios.defaults.withCredentials = true;
 
 export const getAllClips = () => {
-  return (dispatch, getState) => {
-    const auth = getState().auth;
-    axios.get('http://localhost:8888/api/v1/clips?page=1&limit=100', {
-      headers: {
-        'Authorization': 'Bearer ' + auth.token
-      }
-    })
-      .then(res => {
+  return (dispatch) => {
+    axios
+      .get('http://localhost:8888/api/v1/clips?page=1&limit=100', {
+        withCredentials: true,
+      })
+      .then((res) => {
         const response = res.data;
-        const clips = response.data.clips
+        const clips = response.data.clips;
         dispatch(getAllClipsSuccess(clips));
       })
-      .catch(err => {
+      .catch((err) => {
         dispatch(getAllClipsError(err.response.data));
       });
   };
 };
 
+export const getClip = (clipID) => {
+  return (dispatch) => {
+    axios.get(`http://localhost:8888/api/v1/clips/${clipID}`).then((res) => {
+      const response = res.data;
+      const clip = response.data.clip;
+      dispatch(getClipSuccess(clip));
+    });
+  };
+};
+
 export const createNewClip = (clipData) => {
-  return (dispatch, getState) => {
-    const auth = getState().auth;
-    axios.post('http://localhost:8888/api/v1/clips', clipData, {
-      headers: {
-        'Authorization': 'Bearer ' + auth.token
-      }
-    })
-      .then(res => {
+  return (dispatch) => {
+    axios
+      .post('http://localhost:8888/api/v1/clips', clipData)
+      .then((res) => {
         const response = res.data;
         const newClip = response.data.clip;
         dispatch(createNewClipSuccess(newClip));
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
-      })
+      });
   };
-}
+};
 
 export const deleteClip = (clipID) => {
-  return (dispatch, getState) => {
-    const auth = getState().auth;
-    axios.delete(`http://localhost:8888/api/v1/clips/${clipID}`, {
-      headers: {
-        'Authorization': 'Bearer ' + auth.token
-      }
-    })
-      .then(res => {
+  return (dispatch) => {
+    axios
+      .delete(`http://localhost:8888/api/v1/clips/${clipID}`)
+      .then((res) => {
         dispatch(deleteClipSuccess(clipID));
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
-}
-
+};
 
 export const updateClip = (clipID, updatedClip) => {
   return (dispatch, getState) => {
-    const auth = getState().auth;
-    axios.patch(`http://localhost:8888/api/v1/clips/${clipID}`, updatedClip, {
-      headers: {
-        'Authorization': 'Bearer ' + auth.token
-      }
-    })
-      .then(res => {
+    axios
+      .patch(`http://localhost:8888/api/v1/clips/${clipID}`, updatedClip)
+      .then((res) => {
         const response = res.data;
         const updatedClip = response.data.clip;
-        dispatch(updateClipSuccess(updatedClip))
+        dispatch(updateClipSuccess(updatedClip));
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
-      })
-  }
-}
+      });
+  };
+};
