@@ -40,24 +40,40 @@
 
     button {
       @include globalStyles.button();
-      font-size: 1.1em;
+      font-size: 1.5rem;
       background-color: #333;
       color: #fff;
 
       &:hover {
-        outline: 1px dotted #fff;
         background-color: #555;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      &.view {
+        background-color: green;
+        font-size: 1rem;
+        padding: 0.25em 1em;
+
+        &:hover {
+          background-color: #38b000;
+          transform: scale(1.1);
+        }
       }
     }
 
-    button.delete {
-      grid-column: span 2;;
+    button.delete:hover {
+      background-color: #f00;
+      color: #fff;
     }
   }
 
   &:hover {
     .Clip-actions {
-      width: 30%;
+      width: auto;
+      max-width: 80%;
       height: 100%;
     }
   }

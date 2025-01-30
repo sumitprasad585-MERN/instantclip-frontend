@@ -77,7 +77,7 @@ const Clip = ({ clipData, _id, data, datatype, label, fontSize, hide, listScore 
         <button onClick={e => handleFontSize(e, 'decrement')}>-</button>
         <button onClick={e => handleFontSize(e, 'increment')}>+</button>
         <button onClick={handleDelete} className="delete">🗑️</button>
-        <button onClick={handleClipDetails}>View</button>
+        <button onClick={handleClipDetails} className="view">View</button>
       </div>
     </div>
   );
