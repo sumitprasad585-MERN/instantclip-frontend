@@ -1,9 +1,8 @@
 import './Home.scss';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createNewClip, getAllClips } from '../actions/clipActions';
-import ClipList from './ClipList';
-import Layout from './UI/Layout';
+import { useDispatch } from 'react-redux';
+import { createNewClip, getAllClips } from '../../actions/clipActions';
+import ClipList from '../ClipList';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,9 +22,7 @@ const Home = () => {
 
   return (
     <div className="Home" onPaste={handlePaste}>
-      <Layout>
         <ClipList />
-      </Layout>
     </div>
   );
 };

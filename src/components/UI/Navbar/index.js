@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../actions/authActions';
+import { logout } from '../../../actions/authActions';
 
 const Navbar = () => {
   const dispatch = useDispatch();

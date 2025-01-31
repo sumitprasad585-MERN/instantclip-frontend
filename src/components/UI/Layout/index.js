@@ -1,12 +1,14 @@
-import Navbar from "./Navbar"
-import Footer from "./Footer";
+import Navbar from "../Navbar"
+import Footer from "../Footer";
 import './Layout.scss';
 
 const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      { children }
+      <div className="Layout-container">
+        { children }
+      </div>
       <Footer />
     </>
   );

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Clip.scss';
 import { useDispatch } from 'react-redux';
-import { deleteClip, updateClip } from '../actions/clipActions';
+import { deleteClip, updateClip } from '../../actions/clipActions';
 import { useNavigate } from 'react-router-dom';
 
 const Clip = ({ clipData, _id, data, datatype, label, fontSize, hide, listScore }) => {

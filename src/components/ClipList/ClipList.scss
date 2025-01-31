@@ -1,0 +1,9 @@
+@use '../../styles/global.scss' as globalStyles;
+
+.ClipList .ClipList-container {
+  .ClipList-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+}

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Clip from './Clip';
+import Clip from '../Clip';
 import './ClipList.scss';
 
 const ClipList = () => {
