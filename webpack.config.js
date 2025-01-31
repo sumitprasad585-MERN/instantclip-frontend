@@ -10,12 +10,12 @@ module.exports = {
   // i.e., Path in context becomes root path for resolving relative imports
   context: srcPath,
   entry: {
-    index: 'index.js'
+    main: 'index.js'
   },
   output: {
     path: distPath,
-    publicPath: '', // assets will be resolved to relative path
-    filename: 'bundle.js',
+    publicPath: '/', // assets will be resolved to relative path for empty string
+    filename: '[name].bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -24,7 +24,8 @@ module.exports = {
     }),
   ],
   resolve: {
-    modules: [srcPath, "node_modules"]
+    modules: [srcPath, "node_modules"],
+    extensions: ['.js', '.jsx', '.json']
   },
   module: {
     rules: [
@@ -54,7 +55,10 @@ module.exports = {
     ],
   },
   devServer: {
-    static: path.resolve(__dirname, 'public'), // Serve index.html from public directory
+    static: {
+      directory: path.resolve(__dirname, 'public'), // Serve index.html from public directory
+      publicPath: '/'
+    },
     historyApiFallback: true,
     hot: true,
     open: true,
