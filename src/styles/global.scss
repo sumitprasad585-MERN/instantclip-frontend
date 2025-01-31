@@ -9,6 +9,11 @@
   background-color: #ffc8dd;
   border: none;
 
+  &.large-btn{
+    font-size: 1.5em;
+    padding: 0.25em 1em;
+  }
+
   &:active {
     transform: scale(0.98);
   }

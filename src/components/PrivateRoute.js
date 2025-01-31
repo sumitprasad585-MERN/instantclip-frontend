@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import Layout from "./UI/Layout";
 
 const PrivateRoute = ({ children }) => {
@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     <Layout>
       {children}
     </Layout>
-  ) : <Navigate to="/" />
+  ) : <Navigate to="/" replace/>
 };
 
 export default PrivateRoute;

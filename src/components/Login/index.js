@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './Login.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticateUser } from '../../actions/authActions';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { loginSuccess } from '../../reducers/authReducer';
@@ -25,7 +25,8 @@ const Login = () => {
 
   useEffect(() => {
     if (auth.userAuthenticated) {
-      navigate('/home');
+      const lastRoute = sessionStorage.getItem('lastRoute');
+      lastRoute ? navigate(lastRoute) : navigate('/home');
       return;
     }
     const token = Cookies.get('token');

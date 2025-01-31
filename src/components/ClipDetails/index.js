@@ -8,8 +8,6 @@ const ClipDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log(useParams());
-  console.log(id);
   useEffect(() => {
     // FETCH CLIP
   }, []);
@@ -17,9 +15,10 @@ const ClipDetails = () => {
   const handleBack = (e) => {
     navigate(-1);
   }
+
   return (
     <div className="ClipDetails">
-      <button onClick={handleBack} className="back-button">Go Back</button>
+      <button onClick={handleBack} className="back-button large-btn">Go Back</button>
     </div>
   );
 }

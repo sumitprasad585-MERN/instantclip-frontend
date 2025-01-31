@@ -1,0 +1,7 @@
+@use '../../styles/global.scss' as globalStyles;
+
+.ClipDetails {
+  button.back-button {
+    @include globalStyles.button();
+  }
+}

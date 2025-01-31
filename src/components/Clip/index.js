@@ -30,7 +30,6 @@ const Clip = ({ clipData, _id, data, datatype, label, fontSize, hide, listScore 
       ...clipData,
       fontSize: updatedFontSize
     };
-    console.log(updatedClip);
     dispatch(updateClip(_id, updatedClip));
   }
 

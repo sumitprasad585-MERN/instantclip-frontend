@@ -10,12 +10,10 @@ const NotFound = (props) => {
 
   return (
     <div className="NotFound">
-      <div className="container">
-        <header>
-          <h1>The page you're looking for does not exist</h1>
-          <button onClick={handleBack}>Go back</button>
-        </header>
-      </div>
+      <header>
+        <h1>The page you're looking for does not exist</h1>
+        <button onClick={handleBack} className="large-btn">Go back</button>
+      </header>
     </div>
   );
 };

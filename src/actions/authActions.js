@@ -8,7 +8,6 @@ export const authenticateUser = (email, password) => {
       password
     })
       .then(res => {
-        console.log(res);
         dispatch(loginSuccess(res.data));
         return true;
       })
