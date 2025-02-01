@@ -1,11 +1,17 @@
 @use '../../styles/global' as globalStyles;
 
 .Login {
+  font-family: 'Pacifico-Regular';
   width: 100%;
   height: 100vh;
   @include globalStyles.flexContainer();
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: 100% 100vh !important;
 
   .Login-container {
+    background-color: #fff;
     width: 30%;
     box-shadow: 0 0 1em -0.2em #000;
     border-radius: 8px;
@@ -15,7 +21,6 @@
       @include globalStyles.flexContainer();
       letter-spacing: 1px;
       color: #333;
-      font-family: cursive;
     }
 
     .Login-error {
@@ -31,10 +36,15 @@
       width: 100%;
       font-size: 1.25em;
     }
-    
+
     input, button {
       border-radius: 5px;
       padding: 0.5em 0;
+    }
+
+    input {
+      border: 1px solid #000;
+      padding: 0.5em 0.2em;
     }
 
     .input-error-wrapper, .submit-error-wrapper {
@@ -51,9 +61,10 @@
     }
   }
 
-  .Login-register {
+  .Login-register,
+  .Login-forgotPassword {
     @include globalStyles.flexContainer();
-    margin-top: 0.5em;
+    margin: 0.75em 0;
 
     a {
       text-decoration: none;

@@ -18,6 +18,12 @@
     @include globalStyles.flexContainer();
   }
 
+  .Clip-data {
+    @include globalStyles.flexContainer();
+    width: 100%;
+    height: 100%;
+  }
+
   .Clip-copied-overlay {
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.6);

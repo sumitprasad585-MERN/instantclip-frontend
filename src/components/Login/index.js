@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { loginSuccess } from '../../reducers/authReducer';
+import image from '../../assets/images/jr-korpa-9XngoIpxcEo-unsplash.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -45,7 +46,7 @@ const Login = () => {
   }
 
   return (
-    <div className="Login">
+    <div className="Login" style={{background: `url(${image})`}}>
       <div className="Login-container">
         <header className="Login-header">
           <h1>Instantclip</h1>
@@ -88,6 +89,9 @@ const Login = () => {
           </div>
           <button type="submit">Login</button>
         </form>
+        <div className="Login-forgotPassword">
+          <Link to="/forgotPassword">Forgot Password</Link>
+        </div>
         <div className="Login-register">
           <Link to="/register">Dont' have an account? Register</Link>
         </div>
